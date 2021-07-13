@@ -1,7 +1,7 @@
 # Rust - Learning
 
-# Starting out
-1. Firstly, you need to download rustup from the Rust website. https://www.rust-lang.org/tools/install
+# Getting started
+1. Download rustup from the [Rust website](https://www.rust-lang.org/tools/install).
 2. Once rustup has installed, rust is installed on your computer.
 3. Open visual studio code
 4. Type `cargo new [project name]`, rust will automatically create a project folder and the needed files to run a rust project.
@@ -9,5 +9,4 @@
 
 
 # Projects
-## [hello-world](https://cultofintellect.com)
-
+## 1. [hello-world](hello-world/)
