@@ -51,6 +51,58 @@ let ISOpen:bool = true
 ```
 This will help with anybody reading your code, and in a big project will help. Although not necessary, recommended.
 
+# Loops
+## The `loop` Keyword
+The loop keyword will perform an infinite loop in rust.
+Usage:
+```rust
+loop {
+    println!("This will be printed indefinitely");
+}
+```
+In order to stop the loop, you must use the `break` keyword, which will *break* out of the loop.
+```rust
+let mut a = 0;
+loop {
+    a += 1;
+    if a > 9{
+        break;
+    }
+
+    println!("This will loop until a is 10, then it will break out of the loop");
+}
+```
+
+## For Loops
+For loops work similarly to any other language.
+```rust
+// 1..11 - known as an 'iterator'.
+for i in 1..11{
+    println!("{}",i);
+}
+```
+This will return numbers 1 - 10.
+### Vectors
+You can use for loops to loop through vectors.
+```rust
+let animals = vec!["Rabbit","Dog","Cat"];
+for animal in animals.iter(){
+    println!("The animal name is {}", animal);
+}
+```
+We call the `.iter()` method on animals to prevents the ownership of the values inside the vector being moved to the for loop. Without the `.iter()` method, you won't be able to access the animals variable after the for loop. So always use `.iter()` with vectors.
+
+### For loop Index
+```rust
+    let animals = vec!["Rabbit","Dog","Cat"];
+    for (index, animal) in animals.iter().enumerate(){
+        println!("The index is {}. The animal name is {}",index, animal);
+    }
+```
+The `.enumerate()` method at the end of the expression will allow us to pass a `"tuple"` to have two variables in the for loop `(index, animal)`.
+We can now use `index` inside the for loop to find our index.
+
+# Enums
 
 
 
