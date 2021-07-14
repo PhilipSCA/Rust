@@ -3,25 +3,25 @@
 - [Rust - Learning](#rust---learning)
 - [Getting started](#getting-started)
 - [Variables](#variables)
-      - [Assigning a variable](#assigning-a-variable)
-      - [Assigning multiple variables](#assigning-multiple-variables)
-      - [Mutability](#mutability)
-      - [Constants](#constants)
-      - [Integer Types](#integer-types)
-      - [More on Initialising Varaibles](#more-on-initialising-varaibles)
+    - [Assigning a variable](#assigning-a-variable)
+    - [Assigning multiple variables](#assigning-multiple-variables)
+    - [Mutability](#mutability)
+    - [Constants](#constants)
+    - [Integer Types](#integer-types)
+    - [More on Initialising Varaibles](#more-on-initialising-varaibles)
 - [Strings](#strings)
-      - [Get string length](#get-string-length)
-      - [Push **character** onto string](#push-character-onto-string)
-      - [Push onto string](#push-onto-string)
-      - [Check if empty string](#check-if-empty-string)
-      - [String .contains](#string-contains)
-      - [String .replace](#string-replace)
+    - [Get string length](#get-string-length)
+    - [Push **character** onto string](#push-character-onto-string)
+    - [Push onto string](#push-onto-string)
+    - [Check if empty string](#check-if-empty-string)
+    - [String .contains](#string-contains)
+    - [String .replace](#string-replace)
 - [Tuples](#tuples)
 - [Loops](#loops)
-      - [The `loop` Keyword](#the-loop-keyword)
-      - [For Loops](#for-loops)
-      - [Vectors](#vectors)
-      - [Indexing](#indexing)
+    - [The `loop` Keyword](#the-loop-keyword)
+    - [For Loops](#for-loops)
+    - [Vectors](#vectors)
+    - [Indexing](#indexing)
 - [Projects](#projects)
   - [1. hello-world](#1-hello-world)
 
@@ -34,28 +34,28 @@
 
 
 # Variables
-#### Assigning a variable
+### Assigning a variable
 To initialise a variable, use the `let` keyword.
 ```rust
 let x = 45
 ```
-#### Assigning multiple variables
+### Assigning multiple variables
 ```rust
 let (x,y) = (23,34)
 ```
-#### Mutability
+### Mutability
 By default, this variable is also known as **immutable** *(it can't be changed)*. If you were to run `x = 20`, you would get an error.
 To change this, we use the `mut` keyword.
 ```rust
 let mut x = 45
 ```
 This makes the variable **mutable**, so is able to be changed.
-#### Constants
+### Constants
 To make a variable constant, use the `const` keyword.
 ```rust
 const MAX_INT = 200;
 ```
-#### Integer Types
+### Integer Types
 ```rust 
 let x = 2
 ```
@@ -75,7 +75,7 @@ This code will create an **unsigned 64-bit integer**.
 |128-bit|`i128`|`u128`|
 
 ***Note, for floats it is the same syntax, replace `i`/`u` with `f`***
-#### More on Initialising Varaibles
+### More on Initialising Varaibles
 It is always good practice in Rust to show the data type for each variable. Although it is not always necessary. For example:
 ```rust
 let IsOpen = true
@@ -98,13 +98,13 @@ To initialise a rust-type String:
 ```rust
 let hello = String::from("Hello");
 ```
-#### Get string length
+### Get string length
 ```rust
 let hello = String::from("Hello");
 println!("{}",hello.len());
 Output: 5
 ```
-#### Push **character** onto string
+### Push **character** onto string
 ```rust
 let hello = String::from("Hello");
 hello.push('w'); //single quotes + one char length
@@ -118,7 +118,7 @@ hello.push("w"); //double quotes
 hello.push("world"); // double quotes + longer than 1 char
 hello.push('wo'); // longer than 1 char
 ```
-#### Push onto string
+### Push onto string
 To add an extra string onto another string, we use the `push_str` method.
 ```rust
 let hello = String::from("Hello ");
@@ -127,7 +127,7 @@ println!("{}",hello);
 Output: "Hello World"
 ```
 
-#### Check if empty string
+### Check if empty string
 To check if a string is empty, use the `is_empty()` method.
 ```rust
 let hello = String::from("");
@@ -135,7 +135,7 @@ println!("{}",hello.is_empty());
 Output: true
 ```
 
-#### String .contains
+### String .contains
 To check if a string contains a value, use the `contains()` method.
 ```rust
 let hello = String::from("Hello");
@@ -143,7 +143,7 @@ println!("Does the string contain 'World': {}", hello.contains("World"));
 Output: false
 ```
 
-#### String .replace 
+### String .replace 
 To replace a string with something else, use the `replace()` method.
 ```rust
 let hello = String::from("Hello World");
@@ -155,7 +155,7 @@ Output: "Hello There"
 
 
 # Loops
-#### The `loop` Keyword
+### The `loop` Keyword
 The loop keyword will perform an infinite loop in rust.
 Usage:
 ```rust
@@ -176,7 +176,7 @@ loop {
 }
 ```
 
-#### For Loops
+### For Loops
 For loops work similarly to any other language.
 ```rust
 // 1..11 - known as an 'iterator'.
@@ -185,7 +185,7 @@ for i in 1..11{
 }
 ```
 This will return numbers 1 - 10.
-#### Vectors
+### Vectors
 You can use for loops to loop through vectors.
 ```rust
 let animals = vec!["Rabbit","Dog","Cat"];
@@ -195,7 +195,7 @@ for animal in animals.iter(){
 ```
 We call the `.iter()` method on animals to prevents the ownership of the values inside the vector being moved to the for loop. Without the `.iter()` method, you won't be able to access the animals variable after the for loop. So always use `.iter()` with vectors.
 
-#### Indexing
+### Indexing
 ```rust
 let animals = vec!["Rabbit","Dog","Cat"];
 for (index, animal) in animals.iter().enumerate(){
