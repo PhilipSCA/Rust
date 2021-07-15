@@ -8,7 +8,6 @@
     - [Mutability](#mutability)
     - [Constants](#constants)
     - [Integer Types](#integer-types)
-    - [More on Initialising Varaibles](#more-on-initialising-varaibles)
 - [Strings](#strings)
     - [Get string length](#get-string-length)
     - [Push **character** onto string](#push-character-onto-string)
@@ -17,6 +16,13 @@
     - [String .contains](#string-contains)
     - [String .replace](#string-replace)
 - [Tuples](#tuples)
+    - [Defining a tuple](#defining-a-tuple)
+    - [Accessing tuple values](#accessing-tuple-values)
+- [Arrays](#arrays)
+    - [Defining an array](#defining-an-array)
+    - [Accessing array values](#accessing-array-values)
+    - [Changing/Re-Assigning array values](#changingre-assigning-array-values)
+    - [Get array length](#get-array-length)
 - [Loops](#loops)
     - [The `loop` Keyword](#the-loop-keyword)
     - [For Loops](#for-loops)
@@ -74,16 +80,6 @@ This code will create an **unsigned 64-bit integer**.
 |64-bit|`i64`|`u64`|
 |128-bit|`i128`|`u128`|
 
-***Note, for floats it is the same syntax, replace `i`/`u` with `f`***
-### More on Initialising Varaibles
-It is always good practice in Rust to show the data type for each variable. Although it is not always necessary. For example:
-```rust
-let IsOpen = true
-```
-Will work fine, however it is always good practice to define it like this instead:
-```rust
-let ISOpen:bool = true
-```
 
 # Strings
 There are two types of strings
@@ -101,7 +97,8 @@ let hello = String::from("Hello");
 ### Get string length
 ```rust
 let hello = String::from("Hello");
-println!("{}",hello.len());
+println!("{}",hello.len()); // the .len method can be used on both primitive type strings and Rust-type strings.
+
 Output: 5
 ```
 ### Push **character** onto string
@@ -109,6 +106,7 @@ Output: 5
 let hello = String::from("Hello");
 hello.push('w'); //single quotes + one char length
 println!("{}",hello);
+
 Output: Hellow
 ```
 This will not work if you try to push a string. All of this below will give you an error:
@@ -124,6 +122,7 @@ To add an extra string onto another string, we use the `push_str` method.
 let hello = String::from("Hello ");
 hello.push_str("world");
 println!("{}",hello);
+
 Output: "Hello World"
 ```
 
@@ -132,6 +131,7 @@ To check if a string is empty, use the `is_empty()` method.
 ```rust
 let hello = String::from("");
 println!("{}",hello.is_empty());
+
 Output: true
 ```
 
@@ -140,6 +140,7 @@ To check if a string contains a value, use the `contains()` method.
 ```rust
 let hello = String::from("Hello");
 println!("Does the string contain 'World': {}", hello.contains("World"));
+
 Output: false
 ```
 
@@ -148,10 +149,67 @@ To replace a string with something else, use the `replace()` method.
 ```rust
 let hello = String::from("Hello World");
 println!("Replace: {}", hello.replace("World","There"));
+
 Output: "Hello There"
 ```
 
 # Tuples
+A tuple is basically a group of values that can be different types unlike arrays. They can have a maximum of 12 elements.
+### Defining a tuple
+To define a tuple, we use *brackets*`()`, unlike arrays with square brackets `[]`.
+```rust
+//Defining a tuple
+let tuple = ("Philip","London",16);
+// You can also specify the data types
+let tuple: (&str,&str,i8) = ("Philip","London",16);
+```
+### Accessing tuple values
+To access tuple values, we use a `.` after the variable name and use the index, which works similar to arrays and starts at 0. For example:
+```rust
+let tuple = ("Philip","London",16);
+println!("{} is {} years old and from {}",tuple.0,tuple.2,tuple.1);
+
+Output: Philip is 16 years old and from London
+``` 
+
+# Arrays
+An array is a group of values that are of the same data type.
+To define an array, we use square brackets `[]` both to determine the data type, length and elements of the array
+### Defining an array
+```rust
+//i32 = Data Type
+//5 = Array Length
+//[1,2,3,4,5] = Array data
+let numbers: [i32;5] = [1,2,3,4,5];
+```
+### Accessing array values
+To access array values, it's like any other programming language, indexing starts at 0 and we use square brackets `[]` to access a singular element.
+```rust
+let numbers: [i32;5] = [1,2,3,4,5];
+println!("{}",numbers[0]);
+
+Output: 1
+```
+
+### Changing/Re-Assigning array values
+In order to change the values of elements inside an array, firstly the array must be mutable, by default in rust variables are immutable. We use the `mut` keyboard to do this. To change a value, we access the element we want to change and use the equals sign (`=`) to re-assign it.
+```rust
+let mut numbers: [i32;5] = [1,2,3,4,5];
+numbers[1] = 5;
+println!("{}",numbers[1]);
+
+Output: 5
+```
+
+### Get array length
+To get the array length, use the `.len()` method.
+```rust
+let numbers: [i32;5] = [1,2,3,4,5];
+println!("{}",numbers.len());
+
+Output: 5;
+```
+
 
 
 # Loops
